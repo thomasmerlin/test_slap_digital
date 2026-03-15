@@ -29,6 +29,9 @@ class Product
     #[ORM\Column(length: 1024)]
     private ?string $image = null;
 
+    #[ORM\Column(length: 20)]
+    private ?string $code = null;
+
     public function __construct()
     {
         $this->variants = new ArrayCollection();
@@ -89,6 +92,18 @@ class Product
     public function setImage(string $image): static
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
+    public function setCode(string $code): static
+    {
+        $this->code = $code;
 
         return $this;
     }

@@ -12,6 +12,7 @@
                     <img src="{{ product.image }}" class="card-img-top" alt="Image du produit">
                     <div class="card-body">
                         <h5 class="card-title">{{ product.name }}</h5>
+                        <div class="text-muted mb-2">Réf : {{ product.code }}</div>
                         <p class="card-text">
                             {% set min_price = get_minimal_price_for_product(product) %}
                             {% if min_price is not null %}
