@@ -12,12 +12,14 @@
                     <img src="{{ product.image }}" class="card-img-top" alt="Image du produit">
                     <div class="card-body">
                         <h5 class="card-title">{{ product.name }}</h5>
-                        <p class="card-text">Variants : {{ product.variants|length }}</p>
-                        <ul>
-                            {% for variant in product.variants %}
-                                <li>{{ variant.name }} - {{ variant.price }}€ (Stock: {{ variant.stock }})</li>
-                            {% endfor %}
-                        </ul>
+                        <p class="card-text">
+                            {% set min_price = get_minimal_price_for_product(product) %}
+                            {% if min_price is not null %}
+                                A partir de {{ min_price }}€
+                            {% else %}
+                                Aucun variant disponible
+                            {% endif %}
+                        </p>
                     </div>
                 </div>
             </div>
