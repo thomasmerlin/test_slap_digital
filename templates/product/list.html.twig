@@ -16,7 +16,7 @@
                         <p class="card-text">
                             {% set min_price = get_minimal_price_for_product(product) %}
                             {% if min_price is not null %}
-                                A partir de {{ min_price }}€
+                                A partir de {{ min_price|format_price }}
                             {% else %}
                                 Aucun variant disponible
                             {% endif %}

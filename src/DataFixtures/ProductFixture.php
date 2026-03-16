@@ -13,18 +13,17 @@ class ProductFixture extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        for ($i = 1; $i <= 20; $i++) {
+        for ($i = 1; $i <= 50; $i++) {
             $product = new Product();
             $product->setName('Produit ' . $i);
             $product->setImage('https://fastly.picsum.photos/id/39/200/200.jpg?hmac=Q0ovKQ8Rm51WeQ057IqUXwL_1r7V0S8VtWwdZNpXW7E');
-            $productCode = strval(rand(10000, 99999));
+            $productCode = "200" . $i;
             $product->setCode($productCode);
 
-            $variantCount = rand(1, 5);
-            for ($j = 1; $j <= $variantCount; $j++) {
+            for ($j = 1; $j <= 5; $j++) {
                 $variant = new ProductVariant();
                 $variant->setName('Variant ' . $j . ' du Produit ' . $i);
-                $variant->setPrice(rand(100, 1000));
+                $variant->setPrice(rand(100, 10000));
                 $variant->setStock(rand(1, 100));
                 $variant->setProduct($product);
                 $variant->setCode($productCode . '.' . $j);
