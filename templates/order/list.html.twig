@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container mt-4">
+
+    <h1 class="mb-4">Commandes</h1>
+
+    <div class="row">
+        {% for order in orders %}
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card shadow-sm">
+
+                    <div class="card-header">
+                        Commande #{{ order.id }}
+                    </div>
+
+                    <div class="card-body">
+
+                        <ul class="list-group list-group-flush">
+                            {% for variant in order.variants %}
+                                <li class="list-group-item">
+                                    <strong>{{ variant.name }}</strong><br>
+                                    <small class="text-muted">
+                                        Réf : {{ variant.code }}
+                                    </small>
+                                </li>
+                            {% else %}
+                                <li class="list-group-item text-muted">
+                                    Aucun produit
+                                </li>
+                            {% endfor %}
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+        {% else %}
+            <div class="col-12">
+                <div class="alert alert-info">
+                    Aucune commande trouvée
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}
