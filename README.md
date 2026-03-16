@@ -45,9 +45,11 @@ Nous souhaitons pour cette demande pouvoir analyser l'existant, comprendre ce qu
 >
 >user_email;variant_code;price
 >
->Nous voulons donc ensuite pouvoir calculer le prix minimum d’un produit en fonction de l’utilisateur connecté : 
+>A noter que les prix doivent être historisés. Les prix personnalisés doivent être historisés et il doit être possible de savoir quel prix était actif à une date donnée.
+>
+>Nous voulons ensuite pouvoir calculer le prix minimum d’un produit en fonction de l’utilisateur connecté : 
 >
 >- Si l’utilisateur n’est pas connecté, nous déterminons le prix minimum d’un produit avec les prix standards de ses variants
 >- Si l’utilisateur est connecté, nous déterminons le prix minimum d’un produit avec les prix personnalisés de l’utilisateur. Si un utilisateur n’a pas de prix personnalisés sur l’ensemble des variants d’un produit, pour les variants n’ayant pas de prix personnalisés, nous prendrons alors les prix standards pour effectuer les comparaisons nécessaires
 >
->Nous souhaitons pour finir qu’une fois le prix minimum a été calculé pour un client et pour un produit donné, qu’il ne soit plus recalculé par la suite jusqu’au lendemain
+>Nous souhaitons pour finir qu’une fois le prix minimum a été calculé pour un client et pour un produit donné, qu’il ne soit plus recalculé par la suite jusqu’au lendemain.
