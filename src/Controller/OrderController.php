@@ -14,12 +14,14 @@ class OrderController extends AbstractController
     #[Route('/orders', name: 'order_list')]
     public function index(OrderRepository $orderRepository): Response
     {
-        /*$orders = $orderRepository->findBy(
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+        }
+
+        $orders = $orderRepository->findBy(
             ['user' => $this->getUser()],
             ['createdAt' => 'DESC']
-        );*/
-
-        $orders = $orderRepository->findOrdersForUser($this->getUser());
+        );
 
         return $this->render('order/list.html.twig', [
             'orders' => $orders,

@@ -2,14 +2,14 @@
 
 ### Démarrer le projet : 
 
-``` bash 
+```bash 
 $ docker compose up -d --build
 $ docker exec -it test_slap_digital-php-1 bash
 ```
 
 Une fois dans le container :
 
-``` bash
+```bash
 $ composer install
 $ symfony console doctrine:database:create
 $ symfony console doctrine:migrations:migrate
@@ -22,7 +22,9 @@ $ symfony serve --port=8000 --allow-http --no-tls --listen-ip=0.0.0.0
 Voici la demande fournie par le client. 
 Nous souhaitons pour cette demande pouvoir analyser l'existant, comprendre ce qui ne va pas et pouvoir leur donner une estimation adéquate du temps de correction nécessaire pour ce problème.
 
-> Nous avons remarqué un problème de performance sur la page qui récapitule l’ensemble des commandes d’un utilisateur. La base de données est trop souvent appellée pour les informations à afficher.
+> Nous avons remarqué un problème de performance sur la page qui récapitule l’ensemble des commandes d’un utilisateur. 
+> La base de données est trop souvent appellée pour les informations à afficher.
+> Nous ne souhaitons pas modifier le rendu HTML de la page.
 > Nous aimerions savoir d’où provient le problème ainsi que savoir comment résoudre cela. Nous souhaitons un compte-rendu sous la forme suivante : 
 >
 > **Le contexte :**

@@ -19,7 +19,7 @@ class OrderFixture extends Fixture implements DependentFixtureInterface
         $variants = $manager->getRepository(ProductVariant::class)->findAll();
 
         foreach ($users as $user) {
-            for ($i = 0; $i < rand(30, 50); $i++) {
+            for ($i = 0; $i < rand(50, 80); $i++) {
                 $order = new Order();
                 $order->setUser($user);
 
