@@ -35,7 +35,7 @@ class ImportCustomPricesCommand extends Command
 
         if (!file_exists($filePath)) {
             $output->writeln("<error>Fichier introuvable : $filePath</error>");
-            return 1;
+            return Command::FAILURE;
         }
 
         $file = new \SplFileObject($filePath);
@@ -58,6 +58,6 @@ class ImportCustomPricesCommand extends Command
         $this->em->clear();
         $output->writeln("Import terminé : $i lignes traitées.");
 
-        return 0;
+        return Command::SUCCESS;
     }
 }
